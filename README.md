@@ -26,7 +26,7 @@ It includes a responsive React frontend, a lightweight Express backend, and WebS
 ## 🧩 Tech Stack
 
 ### Frontend
-- ⚛️ React (Vite or CRA)
+- ⚛️ React (Vite)
 - 💅 Tailwind CSS for styling
 - 🔄 Axios for HTTP requests
 - ⚡ WebSocket (native API or `socket.io-client`)
@@ -34,5 +34,5 @@ It includes a responsive React frontend, a lightweight Express backend, and WebS
 ### Backend
 - 🟢 Node.js with Express.js
 - 🔌 WebSocket / Socket.IO for real-time messaging
-- 🗃️ (Optional) MongoDB + Mongoose for message persistence
+- 🗃️ MongoDB + Mongoose for message persistence
 - 🛡️ CORS, dotenv, and middleware configuration
