@@ -1,15 +1,3 @@
-# Installation
-
-- after installing node.js:
-
-```js
-npm install
-```
-
-```js
-npm run dev
-```
-
 # 💬 Real-Time Chat App
 
 > A full-stack real-time chat application built with **React**, **Express.js**, and **WebSocket**.  
@@ -22,3 +10,15 @@ This project demonstrates how to build a real-time web chat system using modern 
 It includes a responsive React frontend, a lightweight Express backend, and WebSocket connections for instant bi-directional communication between clients and the server.
 
 ---
+
+# Installation
+
+- after installing node.js:
+
+```js
+npm install
+```
+
+```js
+npm run dev
+```
