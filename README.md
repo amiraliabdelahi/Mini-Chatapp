@@ -22,17 +22,3 @@ This project demonstrates how to build a real-time web chat system using modern 
 It includes a responsive React frontend, a lightweight Express backend, and WebSocket connections for instant bi-directional communication between clients and the server.
 
 ---
-
-## 🧩 Tech Stack
-
-### Frontend
-- ⚛️ React (Vite)
-- 💅 Tailwind CSS for styling
-- 🔄 Axios for HTTP requests
-- ⚡ WebSocket (native API or `socket.io-client`)
-
-### Backend
-- 🟢 Node.js with Express.js
-- 🔌 WebSocket / Socket.IO for real-time messaging
-- 🗃️ MongoDB + Mongoose for message persistence
-- 🛡️ CORS, dotenv, and middleware configuration
