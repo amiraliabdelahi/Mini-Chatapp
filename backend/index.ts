@@ -17,13 +17,13 @@ io.on("connection",(socket) => {
   socket.on("sendUsername",(username) => {
     socket.broadcast.emit("reciveMessage",{
       username:"BOT",
-      type:true,
       message:`${username} has joined the chatroad!`
     })
     socket.on("sendMessage", (message) => {
       socket.broadcast.emit("reciveMessage",{
         message,
-        username
+        username,
+        timestamp: Date.now()
       });
     });
   })
@@ -32,8 +32,8 @@ io.on("connection",(socket) => {
       socket.on("sendUsername",(username) => {
         socket.broadcast.emit("reciveMessage",{
           username:"BOT",
-          type:true,
-          headsup:`${username} has left the chatroad!`
+          message: `${username} has left the chatroad!`,
+          timestamp: Date.now()
         })
       })
     })

@@ -1,5 +1,5 @@
 {
-  "name": "react-socketio",
+  "name": "abdelahi-mini-chatapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@tailwindcss/postcss": "^4.1.17",
+    "react": "latest",
+    "react-dom": "latest",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
     "redux": "^5.0.1",
     "socket.io-client": "^4.8.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
