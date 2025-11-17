@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { socket } from "../socket";
 type Message = {
   message: string;
   username: string;
-  timestamp: number;
+  timestamp: string;
 };
 function Chatroom({ username }: { username: string }) {
   const [listMessage, setListMessage] = useState<Message[]>([]);
@@ -18,12 +18,13 @@ function Chatroom({ username }: { username: string }) {
   const reciveMessage = (message: Message) => {
     setListMessage((prev) => [...prev, message]);
   };
-  const handleSendMessage = () => {
+  const handleSendMessage = (e: FormEvent) => {
+    e.preventDefault();
     if (message !== "") {
       const messageList = {
         username,
         message,
-        timestamp: new Date().getDate(),
+        timestamp: new Date().toLocaleString(),
       };
       socket.emit("sendMessage", message);
       setMessage("");
@@ -31,8 +32,8 @@ function Chatroom({ username }: { username: string }) {
     }
   };
   return (
-    <div className="max-w-xl mx-auto">
-      <nav className="flex gap-2 p-3 bg-purple-500 rounded-t-md">
+    <div className="min-w-2xl">
+      <nav className="flex gap-2 p-4 bg-purple-500 rounded-t-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -68,22 +69,25 @@ function Chatroom({ username }: { username: string }) {
             </div>
           ))}
       </main>
-      <div className="flex gap-1 p-3 bg-purple-500 rounded-b-md">
+      <form
+        onSubmit={handleSendMessage}
+        className="flex gap-1 p-4 bg-purple-500 rounded-b-lg"
+      >
         <input
           type="text"
           onChange={(e) => setMessage(e.target.value)}
           value={message}
           autoFocus
-          className="w-full p-1 bg-white rounded-l-sm outline-none "
+          className="w-full p-2 bg-white rounded-l-sm outline-none"
           placeholder="Type a message.."
         />
         <button
-          onClick={handleSendMessage}
-          className="flex items-center gap-1 bg-[#dedede] text-purple-900 rounded-r-sm px-4"
+          type="submit"
+          className="flex items-center gap-1 bg-[#dedede] text-purple-900 rounded-r-sm p-2 px-4"
         >
           Send
         </button>
-      </div>
+      </form>
     </div>
   );
 }

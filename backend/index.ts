@@ -14,28 +14,25 @@ app.get('/', (req,res) => {
 let numberOfUsers = 0;
 io.on("connection",(socket) => {
   ++numberOfUsers;
-  socket.on("sendUsername",(username) => {
+  socket.on("sendUsername",(username: string) => {
     socket.broadcast.emit("reciveMessage",{
       username:"BOT",
       message:`${username} has joined the chatroad!`
     })
-    socket.on("sendMessage", (message) => {
+    socket.on("sendMessage", (message: string) => {
       socket.broadcast.emit("reciveMessage",{
         message,
         username,
-        timestamp: Date.now()
+        timestamp: new Date().toLocaleString()
       });
     });
   })
   socket.on("disconnect", () => { 
       --numberOfUsers
-      socket.on("sendUsername",(username) => {
         socket.broadcast.emit("reciveMessage",{
           username:"BOT",
-          message: `${username} has left the chatroad!`,
-          timestamp: Date.now()
+          message:  "Someone has left the chatroad!",
         })
-      })
     })
 });
 
